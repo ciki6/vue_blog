@@ -27,9 +27,9 @@
         <div class="set_form clearfix">
           <div class="inp">
             <select class="form-control panel_tit_input" v-model="article.tag">
-              <option v-for="option in getTags" :value="option" v-bind="key">{{option}}</option>
+              <option v-for="option in getTags" :value="option" :key="option.id">{{option}}</option>
             </select>
-            <button class="btn btn-info" @click=""addTag>{{tag.text}}</button>
+            <button class="btn btn-info" @click="addTag">{{tag.text}}</button>
             <input type="text" class="form-control panel_tit_input" v-model.trim="tag.newTag" v-show="tag.show" placeholder="添加标签">
           </div>
         </div>
