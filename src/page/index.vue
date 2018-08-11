@@ -1,5 +1,5 @@
 <template>
-	<div class="index_bg">
+    <div class="index_bg">
         <div class="index_move" :class="{ 'index_move_toggle': toggle }">
             <p class="index_move_p">
                 <span :class="{ 'fade': !toggle }">Britain</span>
@@ -27,8 +27,10 @@
         </div>
     </div>
 </template>
+
 <script>
     import moment from 'moment-timezone'
+
     export default {
         data(){
             return {
@@ -72,6 +74,7 @@
             move(){
                 this.toggle = !this.toggle;
                 this.toggle? localStorage.setItem('indexToggle',"1"):localStorage.removeItem('indexToggle');
+
             }
         },
         beforeDestroy () {

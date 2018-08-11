@@ -27,38 +27,36 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-export default {
-  data() {
-    return {
-      user: {
-        email: "",
-        password: ""
-      }
-    };
-  },
-  computed: {
-    ...mapGetters({
-      getAuth: "getAuth"
-    }),
-    ...mapActions({
-      userLogin: "userLogin"
-    })
-  },
-  methods: {
-    login() {
-      this.$store.dispatch("userLogin", this.user);
+    import { mapGetters ,mapActions } from 'vuex'
+
+    export default {
+        data (){
+            return {
+                user: {
+                    email: '',
+                    password: ''
+                }
+            }
+        },
+        computed: {
+            ...mapGetters({
+                getAuth:'getAuth'
+            }),
+            ...mapActions({
+                userLogin: 'userLogin'
+            })
+        },
+        methods:{
+            login(){
+                this.$store.dispatch('userLogin', this.user);
+            }
+        },
+        watch:{
+            getAuth(){
+                if(this.getAuth) {
+                    this.$router.push({ name: 'userIndex', params: { uid: this.getAuth.id }})
+                }
+            }
+        }
     }
-  },
-  watch: {
-    getAuth() {
-      if (this.getAuth) {
-        this.$router.push({
-          name: "userIndex",
-          params: { uid: this.getAuth.id }
-        });
-      }
-    }
-  }
-};
 </script>
